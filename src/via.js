@@ -1807,7 +1807,7 @@ function _via_reg_canvas_mousedown_handler(e) {
                                       _via_user_sel_region_id);
       if (yes) {
         if( !_via_is_user_moving_region ) {
-          _via_is_user_moving_region = true;
+          //_via_is_user_moving_region = true;
           _via_region_click_x = _via_click_x0;
           _via_region_click_y = _via_click_y0;
         }
@@ -3872,17 +3872,17 @@ function _via_handle_global_keydown_event(e) {
     return;
   }
 
-  if ( e.key === 'ArrowUp' ) {
-    region_visualisation_update('region_label', '__via_region_id__', 1);
-    e.preventDefault();
-    return;
-  }
+  //if ( e.key === 'ArrowUp' ) {
+    //region_visualisation_update('region_label', '__via_region_id__', 1);
+    //e.preventDefault();
+    //return;
+  //}
 
-  if ( e.key === 'ArrowDown' ) {
-    region_visualisation_update('region_color', '__via_default_region_color__', -1);
-    e.preventDefault();
-    return;
-  }
+  //if ( e.key === 'ArrowDown' ) {
+    //region_visualisation_update('region_color', '__via_default_region_color__', -1);
+    //e.preventDefault();
+    //return;
+  //}
 
 
   if ( e.key === 'Home') {
@@ -3990,6 +3990,7 @@ function _via_reg_canvas_keydown_handler(e) {
         if ( _via_current_shape === VIA_REGION_SHAPE.POLYLINE ||
              _via_current_shape === VIA_REGION_SHAPE.POLYGON) {
           _via_polyshape_finish_drawing();
+            //annotation_editor_show();
         }
     }
     if ( e.key === 'Backspace' ) {
@@ -4106,6 +4107,7 @@ function _via_polyshape_finish_drawing() {
     set_region_annotations_to_default_value( new_region_id );
     annotation_editor_add_row( new_region_id );
     annotation_editor_scroll_to_row( new_region_id );
+      annotation_editor_show(); // ekt
 
     _via_redraw_reg_canvas();
     _via_reg_canvas.focus();
